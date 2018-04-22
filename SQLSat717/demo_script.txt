@@ -1,0 +1,67 @@
+Linux for SQL Server
+
+Demos for SQL Saturday 717 - Wheeling
+
+General command examples
+
+cd
+cat
+chmod
+chgrp
+ls
+shutdown
+
+Demos for executing commands:
+
+Create a simple “hello world” script and make it executable
+Execute using .
+Execute using sh or bash scriptname
+Add sh-bang and execute ./scriptname
+Add home to path and execute without ./
+BAD, don’t really do this
+
+
+restore_aw2017_windows.sql
+restore_aw2017_linux.sql
+
+update_aw2017.sql
+
+backup_aw2017_windows.sql
+backup_aw2017_linux.sql
+
+helloworld_2.sh
+helloworld_1.py
+
+awk.sh
+
+chineseyear.ps1
+
+helloworld_1.sh
+helloworld_2.py
+
+hellowworld.ps1
+
+Location of sql files.
+
+Show how you have to elevate to superuser to get to the directory and then look at some files.
+
+Crontab examples:
+
+List current crontab
+Add an entry to run helloworld.py every minute and helloworld.sh every 2 minutes
+
+Demo creation and alteration of users:
+Add a user with a home directory: sudo useradd –m nebula –p IHateMyFather2!
+Groups are just that, groups. They no inherent meaning (other than root)
+sudo groupadd guardians
+Add a user to a group: usermod –a –G nebula guardians
+usermod –a –G groot guardians
+usermod –a –G groot mssql
+
+CIFS demo:
+Once the file share is shown, make a change to a text file on the linux side and show it on windows.
+Do the opposite.
+Create a table on windows data base that shows it is in windows.
+Verify linux doesn't have that table.
+Do a backup of AW on windows and restore to Linux.
+Now show the table exists on Linux
