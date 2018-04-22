@@ -2,7 +2,7 @@ Linux for SQL Server
 
 Demos for SQL Saturday 717 - Wheeling
 
-General command examples
+General command examples:
 
 cd
 cat
