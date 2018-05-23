@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="EPMFData">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=epmfdemo;Initial Catalog=EPMF</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
+    <Prompt>Specify a user name and password for data source EPMFData</Prompt>
+  </ConnectionProperties>
+  <DataSourceID>e0f89fce-47d8-4aaa-b88c-e6c70675a82f</DataSourceID>
+</RptDataSource>
