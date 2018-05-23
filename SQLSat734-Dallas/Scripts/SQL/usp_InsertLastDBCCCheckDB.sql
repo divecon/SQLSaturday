@@ -1,11 +1,12 @@
-USE [EPMF]
+-- usp_InsertLastDBCCCheckDB.sql
+--
+-- Stored procedure to move data from Table Value Parameter to persisted table
+--
+
+IF OBJECT_ID('usp_InsertLastDBCCCheckDB', 'P') IS NOT NULL
+	DROP PROCEDURE [dbo].[usp_InsertLastDBCCCheckDB]
 GO
 
-/****** Object:  StoredProcedure [dbo].[usp_InsertLastDBCCCheckDB]    Script Date: 5/23/2018 2:29:08 PM ******/
-DROP PROCEDURE [dbo].[usp_InsertLastDBCCCheckDB]
-GO
-
-/****** Object:  StoredProcedure [dbo].[usp_InsertLastDBCCCheckDB]    Script Date: 5/23/2018 2:29:08 PM ******/
 SET ANSI_NULLS ON
 GO
 

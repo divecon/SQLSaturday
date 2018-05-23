@@ -1,14 +1,15 @@
-USE [EPMF]
+-- tbl_LastDBCCCheckDB.sql
+--
+-- Create table LastDBCCCheckDB to hold persisted data on last time DBCC CHECKDB was executed
+--
+
+IF OBJECT_ID('DF_LastDBCCC_DateCaptured', 'D') IS NOT NULL
+    ALTER TABLE [dbo].[LastDBCCCheckDB] DROP CONSTRAINT [DF_LastDBCCC_DateCaptured]
+GO
+IF OBJECT_ID('[dbo].[LastDBCCCheckDB]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[LastDBCCCheckDB]
 GO
 
-ALTER TABLE [dbo].[LastDBCCCheckDB] DROP CONSTRAINT [DF__LastDBCCC__DateC__5CD6CB2B]
-GO
-
-/****** Object:  Table [dbo].[LastDBCCCheckDB]    Script Date: 5/23/2018 2:27:51 PM ******/
-DROP TABLE [dbo].[LastDBCCCheckDB]
-GO
-
-/****** Object:  Table [dbo].[LastDBCCCheckDB]    Script Date: 5/23/2018 2:27:51 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -23,6 +24,6 @@ CREATE TABLE [dbo].[LastDBCCCheckDB](
 )
 GO
 
-ALTER TABLE [dbo].[LastDBCCCheckDB] ADD  DEFAULT (getdate()) FOR [DateCaptured]
+ALTER TABLE [dbo].[LastDBCCCheckDB] ADD CONSTRAINT [DF_LastDBCCC_DateCaptured] DEFAULT (getdate()) FOR [DateCaptured]
 GO
 

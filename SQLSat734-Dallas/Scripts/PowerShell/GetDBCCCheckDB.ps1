@@ -1,3 +1,15 @@
+# GetDBCCCheckDB.ps1
+# 
+# This script will get a list of instances to be checked from the Central Management Server
+# and execute a specified SQL script against those instances to collect data to be monitored.
+# Data will first loaded into a Table Value Parameter (TVP) and then, by calling another specific
+# SQL script, will move that data from the TVP to the persisted table in the main warehouse.
+
+# Sections of the code that should be tailored have a comment tag # <Custom> and # </Custom> around
+# the section of code to be customized.
+
+# <Custom>
+
 Import-Module Sqlps -DisableNameChecking
 . C:\EPMF\Scripts\Out-DataTable.ps1
 
@@ -7,11 +19,9 @@ $CMSHost = "EPMFDemo"
 $sqlSP = "dbo.usp_InsertLastDBCCCheckDB"
 $typeName = "LastDBCCCheckDB"
 
-$Result = Invoke-sqlcmd -ServerInstance $CMSHost -Database "EPMF" -Query "SELECT Server_Name AS ServerName FROM [policy].[pfn_ServerGroupInstances]('Demo')"
-#$Result
- #$dt = Invoke-sqlcmd -ServerInstance "EPMFDEMO\DEMO1" -Database "tempdb" -InputFile "$Filename" -ErrorVariable badOuput | out-DataTable
- #$dt
 
+$Result = Invoke-sqlcmd -ServerInstance $CMSHost -Database "EPMF" -Query "SELECT Server_Name AS ServerName FROM [policy].[pfn_ServerGroupInstances]('Demo')"
+# </Custom>
 
 foreach ($Server in $Result)
 {
@@ -21,7 +31,6 @@ foreach ($Server in $Result)
   # $ServerName
    try {
       try {
-         #$dt = Invoke-sqlcmd -ServerInstance "$($Server.ServerName)" -Database "tempdb" -InputFile "$Filename" -ErrorVariable badOuput | out-DataTable
          $dt = Invoke-sqlcmd -ServerInstance "$ServerName" -Database "tempdb" -InputFile "$Filename" -ErrorVariable badOuput | out-DataTable
    #  $dt
       } 
@@ -39,7 +48,11 @@ foreach ($Server in $Result)
   
       #$dt
       # Write data table to database using TVP
+	  
+	  # <Custom>
       $conn = new-Object System.Data.SqlClient.SqlConnection("Server=EPMFDEMO;DataBase=EPMF;Integrated Security=SSPI")
+	  # </Custom>
+	  
       try {
          $conn.Open() | out-null
       }
@@ -49,8 +62,7 @@ foreach ($Server in $Result)
       }
       #"Connected"
       $cmd = new-Object System.Data.SqlClient.SqlCommand("dbo.usp_InsertLastDBCCCheckDB", $conn)
-      #$cmd = new-Object System.Data.SqlClient.SqlCommand($sqlSP, $conn)
-
+      
       $cmd.CommandType = [System.Data.CommandType]'StoredProcedure'
       #SQLParameter
       $spParam = new-Object System.Data.SqlClient.SqlParameter

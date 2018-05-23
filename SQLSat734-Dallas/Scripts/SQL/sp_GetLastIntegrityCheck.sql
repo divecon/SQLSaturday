@@ -1,11 +1,15 @@
-USE [EPMF]
+-- sp_GetLastIntegrityCheck.sql
+--
+-- Stored procedure to select which persisted data should be used for SSRS report
+-- Note: Using a stored procedure for the report makes tweaking the selection easier. 
+--       It won't be necessary to build and deploy a report again unless the actual
+--       columns change.
+--
+
+IF OBJECT_ID('GetLastIntegrityCheck', 'P') IS NOT NULL
+	DROP PROCEDURE [dbo].[GetLastIntegrityCheck]
 GO
 
-/****** Object:  StoredProcedure [dbo].[GetLastIntegrityCheck]    Script Date: 5/23/2018 2:28:39 PM ******/
-DROP PROCEDURE [dbo].[GetLastIntegrityCheck]
-GO
-
-/****** Object:  StoredProcedure [dbo].[GetLastIntegrityCheck]    Script Date: 5/23/2018 2:28:39 PM ******/
 SET ANSI_NULLS ON
 GO
 
