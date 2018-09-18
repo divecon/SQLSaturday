@@ -1,3 +1,4 @@
+#!/snap/bin/pwsh
 #
 # LeapYear.ps1,  Version 1.00
 #

@@ -1,4 +1,4 @@
-#shebang
+#!/snap/bin/pwsh
 #
 # source: http://www.robvanderwoude.com/powershellexamples.php
 # Rob van der Woude

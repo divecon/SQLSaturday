@@ -1,4 +1,4 @@
-#shebang
+#!/snap/bin/pwsh
 param(
 	[parameter( Mandatory = $true, HelpMessage = "Enter a year between 1900 and 2100:" )]
 	[ValidateRange(1900,2100)]
