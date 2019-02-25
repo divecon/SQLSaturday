@@ -1,10 +1,9 @@
-#!/snap/bin/pwsh
+#shebang
 #
 # source: http://www.robvanderwoude.com/powershellexamples.php
 # Rob van der Woude
 # 
-"This is totally different, well, not really totally, from ShowToday.ps1"
-""
+
 ""
 "Date / Format   YYYYMMDD        DD-MM-YYYY        MM/DD/YYYY"
 "============================================================"
