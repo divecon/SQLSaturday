@@ -1,0 +1,95 @@
+﻿Linux for SQL Server
+
+Demos for SQL Saturday 841 - Dallas
+
+General command examples:
+
+cd
+cat
+chmod
+chgrp
+ls
+shutdown
+
+Use awk to list all system users where default shell is not bash
+	grep -v /bin/bash /etc/passwd | awk -F: ' {print $1 "\t" $7}'
+
+Notes: the grep command with the -v option says find all lines in /etc/passwd that do not contain /bin/bash
+       the result is piped to awk which uses the ":" delimiter to parse username ($1) and default shell ($7)
+
+Add new group
+	sudo groupadd guardians
+Add new user
+	sudo useradd –m nebula –p IHateMyFather2!
+Add user to another other group
+	usermod –a –G nebula guardians
+	usermod –a –G groot guardians
+Add user to the mssql
+	usermod –a –G mssql groot
+
+Demos for executing commands:
+
+Create a simple “hello world” script and make it executable
+	cd
+	vi helloworld.sh
+	i
+	echo "Hello World!"
+	<esc>
+	ZZ
+	chmod 700 helloworld.sh
+Execute using .
+	./helloworld.sh
+
+Execute using sh or bash scriptname
+	sh ./helloworld.sh
+	bash ./helloworld.sh
+Add sh-bang and execute ./scriptname
+	vi helloworld.sh
+	i
+	#!/bin/sh
+	<esc>
+	ZZ
+
+Add home to path and execute without ./
+BAD, don’t really do this
+
+
+restore_aw2017_windows.sql
+restore_aw2017_linux.sql
+
+update_aw2017.sql
+
+backup_aw2017_windows.sql
+backup_aw2017_linux.sql
+
+helloworld_2.sh
+helloworld_1.py
+
+awk.sh
+
+chineseyear.ps1
+
+helloworld_1.sh
+helloworld_2.py
+
+hellowworld.ps1
+
+Location of sql files.
+
+cd /var/opt/mssql
+
+Show how you have to elevate to superuser to get to the directory and then look at some files.
+
+Crontab examples:
+
+List current crontab
+Add an entry to run helloworld.py every minute and helloworld.sh every 2 minutes
+
+
+CIFS demo:
+Once the file share is shown, make a change to a text file on the linux side and show it on windows.
+Do the opposite.
+Create a table on windows data base that shows it is in windows.
+Verify linux doesn't have that table.
+Do a backup of AW on windows and restore to Linux.
+Now show the table exists on Linux
