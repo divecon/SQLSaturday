@@ -30,6 +30,8 @@
 - SQL Sat 945 - 20200321 - Chicago IL - Setting up a test lab with Hyper-V
 - SQL Sat 954 - 20200516 - Atlanta GA - Linux for SQL Server Professionals
 - SQL Sat 954 - 20200516 - Atlanta GA - Setting up a test lab with Hyper-V
+
+## Upcoming Events - Pending (2020)
 - SQL Sat TBD - YYYYMMDD - Albuquerque NM - Linux for SQL Server Professionals
 - SQL Sat TBD - YYYYMMDD - Albuquerque NM - Setting up a test lab with Hyper-V
 - SQL Sat TBD - 20200613 - Los Angeles CA
